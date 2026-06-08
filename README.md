@@ -4,7 +4,7 @@
 
 Пример приложения Flask, которое можно развернуть в **Timeweb Cloud Apps** с помощью Dockerfile без настройки.
 
-:tada: [Демо](https://timeweb-cloud-app-example-docker-flask-7b11.twc1.net)
+:tada: [Демо](https://twc-app-example-docker-flask.twc1.net/)
 
 :rocket: [Создать свой Apps](https://timeweb.cloud/my/apps/create)
 
