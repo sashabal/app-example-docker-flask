@@ -5,7 +5,17 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Timeweb Cloud + Docker + Flask = ❤️"
+    return "test flask app"
+
+@app.route("/health")
+def health():
+    return "ok"
+
+@app.route("/test")
+def test_route():
+    data = {"key": "value"}
+    result = data["nonexistent_key"]
+    return result
 
 if __name__ == "__main__":
     port = 3478
