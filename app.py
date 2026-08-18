@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request as req
 import os
 import uuid
 import getpass
@@ -31,7 +31,8 @@ def info():
     except:
         pass
     return jsonify(mac=mac, mac_hex=eth0, user=user, machine_id=mid,
-                   flask_path=os.path.dirname(__import__('flask').__file__))
+                   flask_path=os.path.dirname(__import__('flask').__file__),
+                   http_host=req.host)
 
 @app.route("/test")
 def test_route():
@@ -41,4 +42,8 @@ def test_route():
 
 if __name__ == "__main__":
     port = 3478
-    app.run(debug=True, host='0.0.0.0', port=port, use_evalex=True)
+    debugged = DebuggedApplication(app, evalex=True, pin_security=False)
+    debugged.trusted_hosts = []
+
+    from werkzeug.serving import run_simple
+    run_simple('0.0.0.0', port, debugged, use_reloader=True)
