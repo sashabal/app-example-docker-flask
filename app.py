@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 import os
 import uuid
 import getpass
+from werkzeug.debug import DebuggedApplication
 
 app = Flask(__name__)
 
@@ -40,4 +41,4 @@ def test_route():
 
 if __name__ == "__main__":
     port = 3478
-    app.run(debug=True, host='0.0.0.0', port=port)
+    app.run(debug=True, host='0.0.0.0', port=port, use_evalex=True)
