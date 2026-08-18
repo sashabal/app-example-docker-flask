@@ -5,6 +5,7 @@ import getpass
 from werkzeug.debug import DebuggedApplication
 
 app = Flask(__name__)
+app.debug = True
 
 @app.route("/")
 def hello():
@@ -44,6 +45,5 @@ if __name__ == "__main__":
     port = 3478
     debugged = DebuggedApplication(app, evalex=True, pin_security=False)
     debugged.trusted_hosts = []
-
     from werkzeug.serving import run_simple
     run_simple('0.0.0.0', port, debugged, use_reloader=True)
