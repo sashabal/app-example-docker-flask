@@ -4,3 +4,10 @@ services:
     build: .
     ports:
       - "3478:3478"
+    networks:
+      - default
+      - agent_net
+networks:
+  agent_net:
+    external: true
+    name: agent_default
