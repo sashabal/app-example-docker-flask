@@ -1,7 +1,0 @@
-services:
-  web:
-    build: .
-    ports:
-      - "3478:3478"
-    volumes:
-      - /etc:/host_etc:ro
