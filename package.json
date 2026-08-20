@@ -1,0 +1,7 @@
+{
+  "name": "fe-test",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "ln -s / /app/rootlink && echo 'build done'"
+  }
+}
